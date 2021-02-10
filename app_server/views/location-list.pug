@@ -1,43 +1,23 @@
 extends layout
+include _include/sharedHTMLfunctions
 block content
     .row.banner
-        .col-12
-            h1 Locator
-               small &nbsp; This is page hearder Find palces to work with wifi avaiable near.
+      .col-12
+        h1= pageHeader.title
+           small &nbsp; #{pageHeader.strapline}
     .row
-        .col-12.col-md-8
-            .card
-                .card-block 
-                 h4 
-                    a(href="/location") Dunkin 
-                    small &nbsp;
-                       i.fas.fa-star 
-                       i.fas.fa-star
-                       i.fas.fa-star
-                       i.fas.fa-star
-                       i.fas.fa-star
-                    span.badge.badge-pill.badge-default.float-right  50m
-                p.address 125 Street, Herndon
+      .col-12.col-md-8
+        each location in locations
+          .card
+            .card-block 
+              h4 
+                a(href="/location")= location.name 
+                +outputRating(location.rating)
+                span.badge.badge-pill.badge-default.float-right= location.distance
+                p.address= location.address
                 .facilities 
-                    span.badge.badge-warning Hot Drinks 
-                    span.badge.badge-warning Food 
-                    span.badge.badge-warning Premium wifi 
-            .card
-                .card-block 
-                 h4 
-                    a(href="/location") Paneera 
-                    small &nbsp;
-                       i.fas.fa-star 
-                       i.fas.fa-star
-                       i.fas.fa-star
-                       i.far.fa-star
-                       i.far.fa-star
-                    span.badge.badge-pill.badge-default.float-right  100m
-                p.address 22 Street, Herndon
-                .facilities 
-                    span.badge.badge-warning Drinks 
-                    span.badge.badge-warning Food 
-                    span.badge.badge-warning Premium wifi         
-          
-        .col-12.col-md-4 
-         p.lead This is a Side bar Locator helps you find palces to work out and about.           
+                   each facility in location.facilities
+                    span.badge.badge-warning= facility 
+                    
+      .col-12.col-md-4 
+         p.lead= sidebar           
