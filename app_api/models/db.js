@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const dbURI = process.env.mongoUrl;
 mongoose.connect(dbURI, {useNewUrlParser: true});
-
+mongoose.set('debug', true);
 mongoose.connection.on('connected', () =>{
     console.log(`Mongoose connected to ${dbURI}`);
 });

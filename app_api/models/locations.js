@@ -3,8 +3,8 @@ const locationSchema = new mongoose.Schema({
     name: {
         type: String,
         require: true,
-    address: String,
     },
+    address: String,
     rating: {
         type: Number,
         'default': 0,
@@ -13,4 +13,4 @@ const locationSchema = new mongoose.Schema({
     },
     facilities:[String]
 });
-mongoose.model('Location', locationSchema);
+mongoose.model('Location', locationSchema, 'locator');
