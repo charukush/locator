@@ -9,6 +9,9 @@ router
         .post(ctrlLocations.locationsCreate);
 
 router.route('/locations/:id')
-        .get(ctrlLocations.locationsReadOne);
+        .get(ctrlLocations.locationsReadOne)
+        .put(ctrlLocations.locationsUpdate)
+        .delete(ctrlLocations.locationsDeleteOne)
+
         
 module.exports = router;
