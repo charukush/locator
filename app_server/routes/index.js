@@ -5,7 +5,7 @@ const ctrlAbout = require('../controller/others');
 
 /* GET home page. */
 router.get('/', ctrlLocation.homeList);
-router.get('/location', ctrlLocation.locatiobInfo);
+router.get('/location/:id', ctrlLocation.locatiobInfo);
 router.get('/location/review/new',ctrlLocation.addReview);
 router.get('/about',ctrlAbout.about);
 
