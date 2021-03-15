@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocatorDataService } from '../locator-data.service';
 
 @Component({
   selector: 'app-home-list',
@@ -7,23 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeListComponent implements OnInit {
 
-  constructor() { }
-  locations: Location[] = [{
-    _id: "1234",
-    name: "Paneera",
-    address: "123 Street",
-    rating: 4,
-    facilities:['hot drinks','wifi','Food']
-  },{
-    _id: "5679",
-    name: "Starbucks",
-    address: "456 Street",
-    rating: 3,
-    facilities:['hot drinks','wifi','Food']
+  constructor(private service: LocatorDataService) { }
+  
+  locations: Location[];
 
-  }];
+  async ngOnInit()  {
+    await this.getLocations()
+  }
 
-  ngOnInit(): void {
+  async getLocations(){
+    this.locations = await this.service.getLocations();
   }
 
 }
