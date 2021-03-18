@@ -1,23 +1,20 @@
 extends layout
 include _include/sharedHTMLfunctions
 block content
-    .row.banner
-      .col-12
-        h1= pageHeader.title
-           small &nbsp; #{pageHeader.strapline}
-    .row
-      .col-12.col-md-8
-        each location in locations
-          .card
-            .card-block 
-              h4 
-                a(href="/location/"+location._id)= location.name 
-                +outputRating(location.rating)
-                span.badge.badge-pill.badge-default.float-right= location.distance
-                p.address= location.address
-                .facilities 
-                   each facility in location.facilities
-                    span.badge.badge-warning= facility 
-                    
-      .col-12.col-md-4 
-         p.lead= sidebar           
+  .row.banner
+    .col-12
+      h1= pageHeader.title
+        small &nbsp; #{pageHeader.strapline}
+  .row
+    .col-12.col-md-8
+      .error= message 
+        
+      app-home-list          
+      
+    .col-12.col-md-4 
+      p.lead= sidebar
+
+  block scripts 
+    script(src='/build/runtime.acf0dec4155e77772545.js')
+    script(src='/build/polyfills.35a5ca1855eb057f016a.js')
+    script(src='/build/main.1d04d5595d79a1aac15f.js')

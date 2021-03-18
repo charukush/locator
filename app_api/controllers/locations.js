@@ -5,7 +5,8 @@ const locationsCreate = async(req,res)=>{
     const createResp = await locSchema.create({
         name: req.body.name,
         address: req.body.address,
-        facilities: req.body.facilities
+        facilities: req.body.facilities,
+        rating: req.body.rating
     });
     if(createResp){
         res.status(200)
