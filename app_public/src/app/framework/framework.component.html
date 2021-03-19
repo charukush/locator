@@ -1,0 +1,24 @@
+<p>framework works!</p>
+<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-primary">
+    <div class="container"><a routerLink="" class="navbar-brand">Locator<button class="navbar-toggler" type="button"
+                data-toggle="collapse" data-target="#navbarMain"><span class="navbar-toggler-icon"></span></button></a>
+        <div class="navbar-collapse collapse" id="navbarMain">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a routerLink="about" routerLinkActive="active" class="nav-link">About</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container content">
+    <router-outlet></router-outlet>
+    <footer>
+        <div class="row">
+            <div class="col-12">
+                <small>
+                    Copy Right - Getting Mean - Project
+                </small>
+
+            </div>
+        </div>
+    </footer>
+</div>
