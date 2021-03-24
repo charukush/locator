@@ -11,7 +11,7 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  public pageConent = {
+  public pageContent = {
     header: {
       title:'Loc8r',
       strapline: 'Find places to work with wifi near you!'
