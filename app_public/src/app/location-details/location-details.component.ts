@@ -12,12 +12,13 @@ export class LocationDetailsComponent implements OnInit {
 
   constructor() { }
   
-   ngOnInit() {
-    
-  }
+  public newReview = {
+    author: '',
+    rating: 5,
+    reviewText: ''
+  };
 
-
-
-
-
+  public formVisible = false;
+  
+  ngOnInit() {}
 }
