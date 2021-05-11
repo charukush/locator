@@ -1,4 +1,19 @@
 const mongoose = require('mongoose');
+
+const reviewSchema = new mongoose.Schema({
+    author: String,
+    rating: {
+        type: Number,
+        required: true,
+        min:0,
+        max:5
+    },
+    reviewText: String,
+    createdOn: {
+        type: Date,
+        'default': Date.now
+    }
+});
 const locationSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -11,6 +26,7 @@ const locationSchema = new mongoose.Schema({
         min:0,
         max:5
     },
-    facilities:[String]
+    facilities:[String],
+    reviews: [reviewSchema]
 });
 mongoose.model('Location', locationSchema, 'locator');
