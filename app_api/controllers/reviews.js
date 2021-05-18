@@ -26,9 +26,50 @@ const reviewsReadOne = async (req,res) => {
     res.status(404).json({"message": "Review not found"});
 
 };
-const reviewsUpdateOne = (req,res) => {};
-const reviewsDeleteOne = (req,res) => {};
 
+const reviewsDeleteOne = async(req,res) => {
+    let respMessage = "Review not found";
+    const locationId = req.params.id;
+    const reviewId = req.params.reviewid;
+
+    const location = await locSchema.findById(locationId).exec();
+    for(var currentReview of location.reviews){
+        if(currentReview._id == reviewId){
+            respMessage = `Review ${currentReview._id} deleted`;
+            currentReview.remove();
+        }
+    }
+    await location.save();
+    res.status(202).json({"message": respMessage});
+};
+
+const reviewsUpdateOne = async(req,res) => {
+    const locationId = req.params.id;
+    const reviewId = req.params.reviewid;
+    const {author,rating, reviewText} = req.body;
+    
+    const location = await locSchema.findById(locationId).exec();
+    for(var currentReview of location.reviews){
+        console.log(`currentReview= ${currentReview}`);
+        if(currentReview._id == reviewId){
+            if(author){
+                currentReview.author = author;
+            }
+            if(rating){
+                currentReview.rating = rating;
+            }
+            if(reviewText){
+                currentReview.reviewText = reviewText;
+            }
+            await location.save();
+            res.status(200).json(location);
+            
+        }
+    }
+    res.status(404).json({"message": "Review not found for update"});
+
+    
+};
 
 module.exports ={
     reviewsCreate,
