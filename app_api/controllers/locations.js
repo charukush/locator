@@ -33,7 +33,7 @@ const locationsListByDistance = async(req,res)=>{
 };
 
 const locationsReadOne = (req,res)=>{
-    console.log(`Input ID is ${req.params.id}`);
+    //console.log(`Input ID is ${req.params.id}`);
     locSchema.findById(req.params.id)
               .exec((err, location)=>{
                   if(!location){

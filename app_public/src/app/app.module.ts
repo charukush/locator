@@ -14,6 +14,7 @@ import { HtmlLineBreaksPipe } from './html-line-breaks.pipe';
 import { LocationDetailsComponent } from './location-details/location-details.component';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { RatingStarsComponent } from './rating-stars/rating-stars.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,10 +28,12 @@ import { RatingStarsComponent } from './rating-stars/rating-stars.component';
     LocationDetailsComponent,
     DetailsPageComponent,
     RatingStarsComponent
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {
         path:'',

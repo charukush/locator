@@ -20,7 +20,7 @@ export class DetailsPageComponent implements OnInit {
       .pipe(
         switchMap((params: ParamMap)=>{
           let id = params.get('locationid');
-          console.log(`The id of page ${id}`);
+          //console.log(`The id of page ${id}`);
           return this.http.getLocationId(id);
         })
       )

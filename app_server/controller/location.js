@@ -15,10 +15,10 @@ const homeList = async (req, res) => {
 
 const locatiobInfo = async (req, res) => {
     try {
-        //console.log(`Input ID is ${req.params.id}`);
+       
         const response = await fetch(`http://localhost:3000/api/locations/${req.params.id}`);
         const data = await response.json();
-        //console.log(data);
+        
         res.render('location-info', { title: "Dunkin1", data: data });
     } catch (err) {
         res.render('location-info', { title: "Location-error" });
@@ -27,6 +27,8 @@ const locatiobInfo = async (req, res) => {
 }
 
 const addReview = (req, res) => {
+
+    
     res.render('location-review-form',
         {
             title: "Review Location",

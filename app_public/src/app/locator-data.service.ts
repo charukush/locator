@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import{ HttpClient } from '@angular/common/http';
 import { Location } from './home-list/home-list.component';
+import { promise } from 'protractor';
 
 
 @Injectable({
@@ -29,4 +30,10 @@ export class LocatorDataService {
     console.error(err);
   }
 }
+public async postReview(review,id){
+    const resp = await this.http.post(`${this.apiBaseUrl}/locations/${id}/reviews`,review).toPromise();
+
+  return resp;
+  
 }
+ }
